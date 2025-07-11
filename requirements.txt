@@ -1,0 +1,6 @@
+streamlit
+openai
+pdfplumber
+python-dotenv
+fpdf2
+camelot-py[cv]
