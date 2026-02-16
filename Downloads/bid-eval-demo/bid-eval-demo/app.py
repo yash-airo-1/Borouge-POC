@@ -56,7 +56,7 @@ init_session_state()
 with st.sidebar:
     # Display Airo Logo
     try:
-        st.image("AiroLogo.png", use_container_width=True)
+        st.image("assets/AiroLogo.png", use_container_width=True)
     except:
         # Fallback if image not found
         st.markdown(
