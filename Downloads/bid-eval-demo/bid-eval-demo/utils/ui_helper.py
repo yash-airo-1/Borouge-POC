@@ -1,5 +1,7 @@
 """UI helper functions for Airo Bid Evaluation Platform."""
 
+from pathlib import Path
+
 import streamlit as st
 from utils.state import (
     clear_all_data,
@@ -9,14 +11,17 @@ from utils.state import (
     get_supplier_evaluations,
 )
 
+# Logo path relative to this file so it works locally and on Streamlit Cloud
+_LOGO_PATH = Path(__file__).resolve().parent.parent / "assets" / "AiroLogo.png"
+
 
 def setup_sidebar():
     """Setup sidebar with logo, API key input, and navigation."""
     with st.sidebar:
         # Display Airo Logo
         try:
-            st.image("./assets/AiroLogo.png", use_container_width=True)
-        except:
+            st.image(str(_LOGO_PATH), use_container_width=True)
+        except Exception:
             # Fallback if image not found
             st.markdown(
                 """

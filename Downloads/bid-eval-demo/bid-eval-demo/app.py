@@ -1,7 +1,12 @@
-import streamlit as st
 import os
+from pathlib import Path
+
+import streamlit as st
 from dotenv import load_dotenv
 from utils.state import init_session_state, clear_all_data, set_api_key, get_api_key
+
+# Logo path relative to app root so it works locally and on Streamlit Cloud
+_LOGO_PATH = Path(__file__).resolve().parent / "assets" / "AiroLogo.png"
 
 # Load environment variables
 load_dotenv()
@@ -56,8 +61,8 @@ init_session_state()
 with st.sidebar:
     # Display Airo Logo
     try:
-        st.image("assets/AiroLogo.png", use_container_width=True)
-    except:
+        st.image(str(_LOGO_PATH), use_container_width=True)
+    except Exception:
         # Fallback if image not found
         st.markdown(
             """
